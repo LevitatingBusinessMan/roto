@@ -10,7 +10,7 @@ struct NonEmptyString {
 
 fn main() -> Result<(), roto::RotoReport> {
     #[cfg(feature = "logger")]
-    env_logger::init();
+    tracing_subscriber::fmt::init();
 
     let lib = library! {
         #[clone] type NonEmptyString = Val<NonEmptyString>;

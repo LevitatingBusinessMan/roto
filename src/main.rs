@@ -2,9 +2,9 @@ use roto::Runtime;
 
 fn main() {
     #[cfg(feature = "logger")]
-    env_logger::builder()
-        .format_timestamp(None)
-        .format_target(false)
+    tracing_subscriber::fmt()
+        .without_time()
+        .with_target(false)
         .init();
 
     let mut rt = Runtime::new();

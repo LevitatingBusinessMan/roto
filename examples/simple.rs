@@ -4,7 +4,7 @@ use roto::{Runtime, Verdict};
 
 fn main() -> ExitCode {
     #[cfg(feature = "logger")]
-    env_logger::init();
+    tracing_subscriber::fmt::init();
 
     let runtime = Runtime::new();
 

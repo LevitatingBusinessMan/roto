@@ -22,7 +22,7 @@ fn compile(f: FileTree) -> Package {
 #[track_caller]
 fn compile_with_runtime(f: FileTree, runtime: Runtime) -> Package {
     #[cfg(feature = "logger")]
-    let _ = env_logger::try_init();
+    let _ = tracing_subscriber::fmt::try_init();
 
     let res = f.parse().and_then(|x| x.typecheck(&runtime)).map(|x| {
         let x = x.lower_to_mir().lower_to_lir();

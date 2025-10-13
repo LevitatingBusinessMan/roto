@@ -27,19 +27,20 @@ bench = false
 [features]
 default = ["cli"]
 cli = ["clap"]
-logger = ["env_logger"]
 selinux-fix = ["cranelift-jit/selinux-fix"]
+logger = ["tracing", "tracing-subscriber"]
 
 [dependencies]
 ariadne = "0.5.1"
 clap = { version = "4.4.6", features = ["derive"], optional = true }
-env_logger = { version = "0.11", optional = true }
 unicode-ident = "1.0.18"
 inetnum = "0.1.0"
 log = "0.4"
 roto-macros = { workspace = true }
 symbol_table = { version = "0.4.0", features = ["global"] }
 rustc-literal-escaper = "0.0.4"
+tracing-subscriber = { version = "0.3.20", features = ["env-filter"], optional = true }
+tracing = { version = "0.1.41", optional = true }
 
 [dependencies.cranelift]
 version = "0.120.0"

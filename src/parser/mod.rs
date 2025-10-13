@@ -155,6 +155,7 @@ impl<'source, 'spans> Parser<'source, 'spans> {
         Self::run_parser(Self::tree, file, spans, input)
     }
 
+    #[cfg_attr(feature = "logger", tracing::instrument(skip_all, level="trace"))]
     fn run_parser<T>(
         mut parser: impl FnMut(&mut Self) -> ParseResult<T>,
         file: usize,

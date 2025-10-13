@@ -8,7 +8,7 @@ struct Vec2 {
 
 fn main() -> Result<(), roto::RotoReport> {
     #[cfg(feature = "logger")]
-    env_logger::init();
+    tracing_subscriber::fmt::init();
 
     let lib = library! {
         /// Some type I want to register

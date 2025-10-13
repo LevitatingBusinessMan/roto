@@ -2,7 +2,7 @@ use roto::Runtime;
 
 fn main() -> Result<(), roto::RotoReport> {
     #[cfg(feature = "logger")]
-    env_logger::init();
+    tracing_subscriber::fmt::init();
 
     let runtime = Runtime::new();
     let mut pkg = runtime

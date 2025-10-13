@@ -8,9 +8,9 @@ fn compile(s: FileTree, rt: &Runtime) -> LoweredToLir<'_> {
     // We run this multiple times and only want to init the
     // first time, so ignore failures.
     #[cfg(feature = "logger")]
-    let _ = env_logger::builder()
-        .format_timestamp(None)
-        .format_target(false)
+    let _ = tracing_subscriber::fmt()
+        .without_time()
+        .with_target(false)
         .try_init();
 
     s.parse()
